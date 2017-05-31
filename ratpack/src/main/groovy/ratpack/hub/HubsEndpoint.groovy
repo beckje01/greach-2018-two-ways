@@ -30,16 +30,24 @@ class HubsEndpoint implements Action<Chain> {
 					get { ObjectMapper objectMapper ->
 						//This is the list endpoint
 						hubDAOService.getAll().then({ hubs ->
-							response.contentType(HttpHeaderValues.APPLICATION_JSON)
-							context.render(objectMapper.writeValueAsString(hubs))
+							byContent {
+								json {
+									response.contentType(HttpHeaderValues.APPLICATION_JSON)
+									context.render(objectMapper.writeValueAsString(hubs))
+								}
+							}
 						})
 					}
 					post { ObjectMapper objectMapper ->
 						parse(Hub).flatMap({ Hub hub ->
 							return hubDAOService.save(hub)
 						}).then({ Hub hub ->
-							response.contentType(HttpHeaderValues.APPLICATION_JSON)
-							render(objectMapper.writeValueAsString(hub))
+							byContent {
+								json {
+									response.contentType(HttpHeaderValues.APPLICATION_JSON)
+									render(objectMapper.writeValueAsString(hub))
+								}
+							}
 						})
 					}
 				}

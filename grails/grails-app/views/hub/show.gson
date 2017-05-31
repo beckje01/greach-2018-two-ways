@@ -1,0 +1,7 @@
+import two.ways.Hub
+
+model {
+	Hub hub
+}
+
+json tmpl.hub(hub)

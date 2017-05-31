@@ -1,0 +1,9 @@
+import two.ways.Hub
+
+model {
+	Hub hub
+}
+
+json {
+	id hub.id
+}

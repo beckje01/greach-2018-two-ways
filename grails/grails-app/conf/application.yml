@@ -1,15 +1,15 @@
 ---
 grails:
-    profile: web
+    profile: rest-api
     codegen:
         defaultPackage: two.ways
     spring:
         transactionManagement:
             proxies: false
     gorm:
-        # Whether to autowire entities. 
+        # Whether to autowire entities.
         # Disabled by default for performance reasons.
-        autowire: false         
+        autowire: false
         reactor:
             # Whether to translate GORM events into Reactor events
             # Disabled by default for performance reasons

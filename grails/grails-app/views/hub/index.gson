@@ -1,0 +1,8 @@
+import two.ways.Hub
+
+model {
+	Iterable<Hub> hubList
+}
+
+json tmpl.hub(hubList ?: [])
+
